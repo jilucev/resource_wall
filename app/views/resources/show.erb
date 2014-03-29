@@ -1,0 +1,47 @@
+<h1>Resource Feedback</h1>
+
+<%= @resource  %>
+<%= @resources  %>
+<%= @reviews  %>
+<%= @review  %>
+
+
+<a href="/resources">Back to the wall</a>
+
+<p>
+  <h3> <a href="<%= @resource.url %>"><%= @resource.title %></a>
+</p>
+
+ <% if current_user %>
+
+  <% unless current_user.already_voted?(@resource) %>
+   <form 
+     method="post" 
+     action="/resources/upvote/<%= @resource.id%>">
+    <button type="submit" class="btn btn-default btn-lg btn-success">
+      <span class="glyphicon glyphicon-arrow-up"></span>
+    </button>
+  </form>
+
+   <form 
+     method="post" 
+     action="/resources/downvote/<%= @resource.id%>">
+      <button type="button" class="btn btn-default btn-lg btn-danger">
+        <span class="glyphicon glyphicon-arrow-down"></span>
+      </button>
+  </form>
+
+  <% else %>
+
+  <h3>Add your review</h3>
+
+  <form>
+  <textarea rows="10" cols="50" name="review">
+  </textarea>
+  <input type= "submit" value="post" class= "btn btn-primary btn-info">
+</form>
+
+
+
+  <% end %>
+  <%end%>
