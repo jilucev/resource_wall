@@ -35,13 +35,12 @@
 
   <h3>Add your review</h3>
 
-  <form>
+  <form method= "post" action="/resources/<%= @resource.id %>/review">
   <textarea rows="10" cols="50" name="review">
   </textarea>
-  <input type= "submit" value="post" class= "btn btn-primary btn-info">
+  <button type= "submit" value="post" class= "btn btn-primary btn-info">
+  </button>
 </form>
-
-
 
   <% end %>
   <%end%>

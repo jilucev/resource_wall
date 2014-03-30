@@ -33,7 +33,7 @@ get '/resources/:id' do
   @resource = Resource.find params[:id]
   @resources = Resource.all
   @reviews = @resource.reviews
-  @review = Review.new
+  # @review = Review.new
     erb :'resources/show'
   end
 
@@ -56,7 +56,7 @@ post '/resources/upvote/:resource_id' do
     resource_id: params[:resource_id],
     user_id: current_user.id
     )
-  redirect '/resources/show'
+  redirect '/resources/' + params[:resource_id]
 end
 
 post '/resources/downvote/:resource_id' do
@@ -64,9 +64,16 @@ post '/resources/downvote/:resource_id' do
     resource_id: params[:resource_id],
     user_id: current_user.id
     )
-  redirect '/resources/show'
+  redirect '/resources/' + params[:resource_id]
 end
 
+post '/resources/:resource_id/review' do
+  @review = Review.create(
+    resource_id: params[:resource_id],
+    user_id: current_user.id
+    )
+    redirect 'resources/' + params[:resource_id]
+  end
 
 #Authentication Actions
 
