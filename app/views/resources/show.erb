@@ -50,6 +50,26 @@
 
  <% @reviews.each do |review| %> 
 <%= review.review_text %>
+ <div>
+    <h3>Did you like or dislike this review?</h3>
+  </div>
+ </div>
+   <form 
+     method="post" 
+     action="/resources/upvote/<%= @resource.id%>">
+    <button type="submit" class="btn btn-default btn-lg btn-warning">
+      <span class="glyphicon glyphicon-thumbs-up"></span>
+    </button>
+  </form>
+
+   <form 
+     method="post" 
+     action="/resources/downvote/<%= @resource.id%>">
+      <button type="submit" class="btn btn-default btn-lg btn-warning">
+        <span class="glyphicon glyphicon-thumbs-down"></span>
+      </button>
+  </form>
+
 <% end %>
   <% end %>
   <%end%>
