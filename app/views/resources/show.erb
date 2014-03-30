@@ -34,13 +34,19 @@
   <% else %>
 
   <h3>Add your review</h3>
+ 
+  
 
-  <form method= "post" action="/resources/<%= @resource.id %>/review">
-  <textarea rows="10" cols="50" name="review">
+  <form method="post" action="/resources/<%= @resource.id %>/review">
+  <textarea rows="10" cols="50" name="review_text">
+ 
   </textarea>
-  <button type= "submit" value="post" class= "btn btn-primary btn-info">
-  </button>
+  <button type="submit" class="btn btn-primary btn-info">Post</button>
 </form>
 
+
+ <% @reviews.each do |review| %> 
+<%= review.review_text %>
+<% end %>
   <% end %>
   <%end%>

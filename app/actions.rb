@@ -70,7 +70,8 @@ end
 post '/resources/:resource_id/review' do
   @review = Review.create(
     resource_id: params[:resource_id],
-    user_id: current_user.id
+    user_id: current_user.id,
+    review_text: params[:review_text]
     )
     redirect 'resources/' + params[:resource_id]
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330001431) do
+ActiveRecord::Schema.define(version: 20140330005429) do
 
   create_table "downvotes", force: true do |t|
     t.integer  "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20140330001431) do
     t.string   "review_downvotes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "review_text"
   end
 
   create_table "upvotes", force: true do |t|
