@@ -4,24 +4,31 @@
 <% @resources.each do |resource| %>
   
 
-  <div>
-  <h3>
-   <a href="resources/<%= resource.id %>">
-    <%= resource.title %></a>
-  </h3>
-  </div>
+
   
-
   <div>
-  <h3>
+    <h2>
+  <a href="<%= resource.url %>"
+    target="read_resource"> <div>
+  <h2>
     <%= resource.topic %>
-  </h3>
+  </h2>
+  </div></a>
+  </h2>
+
+     <div>
+  <h5>
+    <p>Topic:<%= resource.topic %></p>
+  </h5>
   </div>
 
-
   <div>
-  <a href="<%= resource.url %>"
-    target="read_resource">Read here</a>
+ 
+   <a href="resources/<%= resource.id %>">
+     <h4>Vote and comment here</h4>
+    </a>
+  
+  </div>
 
 <% if resource.user_id == current_user.id %>
 
