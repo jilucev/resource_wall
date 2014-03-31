@@ -37,6 +37,13 @@ get '/resources/:id' do
     erb :'resources/show'
   end
 
+# get 'resources/:review_id' do
+#   @review = Review.find params[:id]
+#   @reviews = Review.all
+#   @reviews= @resource.reviews
+#   erb :'resources/show'
+# end
+
 post '/resources/:id' do 
   resource = Resource.find_by(
     user_id: current_user.id,
@@ -76,6 +83,17 @@ post '/resources/:resource_id/review' do
     redirect 'resources/' + params[:resource_id]
   end
 
+# post '/resources/:resource_id/:review_id/like' do
+#   @like = Like.create(
+#     resource_id: params[:resource_id]
+#     review_id: params[:review_id],
+#     user_id: current_user.id,
+#     likes_counter: params[:likes_counter]
+#     )
+# redirect 'resources/' + params[:likes_counter]
+#   end
+
+  # action="/resources/<%= @resource.id %>/<%= @review.id %>/likes">
 #Authentication Actions
 
 get '/sign_up' do

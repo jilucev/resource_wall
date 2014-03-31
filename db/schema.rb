@@ -10,11 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330203003) do
+ActiveRecord::Schema.define(version: 20140330205809) do
 
   create_table "downvotes", force: true do |t|
     t.integer  "user_id"
     t.integer  "resource_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "likes", force: true do |t|
+    t.integer  "user_id"
+    t.string   "review_id"
+    t.string   "likes_counter"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,8 +39,6 @@ ActiveRecord::Schema.define(version: 20140330203003) do
   create_table "reviews", force: true do |t|
     t.string   "user_id"
     t.string   "resource_id"
-    t.string   "review_likes"
-    t.string   "review_dislikes"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "review_text"

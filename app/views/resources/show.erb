@@ -47,25 +47,26 @@
   <button type="submit" class="btn btn-primary btn-info">Post</button>
 </form>
 
+ <div>
+
+    <h4>Did you like or dislike this review?</h4>
+  </div>
 
  <% @reviews.each do |review| %> 
-<%= review.review_text %>
- <div>
-    <h3>Did you like or dislike this review?</h3>
-  </div>
+<h3><%= review.review_text %></h3>
  </div>
    <form 
      method="post" 
-     action="/resources/upvote/<%= @resource.id%>">
-    <button type="submit" class="btn btn-default btn-lg btn-warning">
+     action="/resources">
+    <button type="submit" class="btn btn-default btn-sm btn-warning">
       <span class="glyphicon glyphicon-thumbs-up"></span>
     </button>
   </form>
 
    <form 
      method="post" 
-     action="/resources/downvote/<%= @resource.id%>">
-      <button type="submit" class="btn btn-default btn-lg btn-warning">
+     action="">
+      <button type="submit" class="btn btn-default btn-sm btn-warning">
         <span class="glyphicon glyphicon-thumbs-down"></span>
       </button>
   </form>
