@@ -90,7 +90,7 @@ post '/resources/:resource_id/review' do
 #     user_id: current_user.id,
 #     likes_counter: params[:likes_counter]
 #     )
-# redirect 'resources/' + params[:likes_counter]
+# redirect 'resources/' 
 #   end
 
   # action="/resources/<%= @resource.id %>/<%= @review.id %>/likes">
